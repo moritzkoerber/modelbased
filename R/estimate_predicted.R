@@ -228,7 +228,7 @@ estimate_prediction <- function(model,
   out <- cbind(data, out)
 
   # Add residuals
-  if (!is.null(resid)) {
+  if (!is.null(resid) && ! predict %in% c("zprob", "zlink", "disp")) {
     out$Residuals <- out$Predicted - resid
   }
 
